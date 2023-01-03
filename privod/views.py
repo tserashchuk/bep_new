@@ -4,7 +4,7 @@ from privod.models import *
 
 class Home(View):
     def get(self, request):
-        data = Product.objects.all()
-        print(data)
-        return render(request, 'index.html', {'data':data})
+        products = Product.objects.all()
+        categorys = Category.objects.all()
+        return render(request, 'index.html', {'products':products,'categorys':categorys})
 
