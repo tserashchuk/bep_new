@@ -8,3 +8,7 @@ class Home(View):
         categorys = Category.objects.all()
         return render(request, 'index.html', {'products':products,'categorys':categorys})
 
+class Categorys(View):
+    def get(self, request):
+        categorys = Category.objects.all()
+        return render(request, 'categorys.html', {'categorys':categorys})
