@@ -23,7 +23,9 @@ from privod import views
 
 urlpatterns = [
                   path('', views.Home.as_view(), name='home'),
-                  path('categorys/', views.Categorys.as_view(), name='categorys'),
+                  path('category/', views.Categorys.as_view(), name='categorys'),
+                  path('category/<str:cat_slug>', views.Products.as_view(), name='products'),
+                  path('product/<str:product_slug>', views.SingleProduct.as_view(), name='product'),
                   path('admin/', admin.site.urls),
                   path('editorjs/', include('django_editorjs_fields.urls')),
 

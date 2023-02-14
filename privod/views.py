@@ -12,3 +12,13 @@ class Categorys(View):
     def get(self, request):
         categorys = Category.objects.all()
         return render(request, 'categorys.html', {'categorys':categorys})
+
+class Products(View):
+    def get(self, request, cat_slug):
+        category = Category.objects.get(cat_slug=cat_slug)
+        return render(request, 'products.html', {'category': category})
+
+class SingleProduct(View):
+    def get(self, request, product_slug):
+        product = Product.objects.get(product_slug=product_slug)
+        return render(request, 'product.html', {'product': product})

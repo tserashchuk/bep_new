@@ -19929,6 +19929,7 @@ input[type=number] {
 }
 
 .card-pinned {
+
     position: relative;
     display: block
 }
