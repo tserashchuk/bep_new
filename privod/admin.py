@@ -12,7 +12,7 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(Region, admin.ModelAdmin)
 admin.site.register(Punkt, admin.ModelAdmin)
 admin.site.register(Product, admin.ModelAdmin)
-
+admin.site.register(Manufacturer, admin.ModelAdmin)
 
 
 

@@ -23,16 +23,30 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('products', args=[self.cat_slug])
 
+class Manufacturer(models.Model):
+    manufacturer_name = models.CharField('Название производителя', max_length=200)
+    manufacturer_title = models.CharField('Заголовок для Open Graph (og:title)', max_length=200)
+    manufacturer_metadesc = models.CharField('Описание для Open Graph (og:description)', max_length=300)
+    manufacturer_image = models.ImageField('Логотип производителя', default='placeholder.jpg')
+    manufacturer_desc = models.TextField('Описание производителя', blank=True)
+    body_editorjs = EditorJsJSONField()
+    manufacturer_slug = models.CharField('URL', max_length=200, default='manufacturer' + str(datetime.datetime.now()))
+
+    def __str__(self):
+        return self.manufacturer_name
+
+    def get_absolute_url(self):
+        return reverse('manufacturer', args=[self.manufacturer_slug])
 
 class Product(models.Model):
     product_name = models.CharField('Название продукта', max_length=200)
     product_title = models.CharField('Заголовок для Open Graph (og:title)', max_length=200)
     product_metadesc = models.CharField('Описание для Open Graph (og:description)', max_length=300)
-    product_price = models.CharField('Цена', max_length=200, blank=True, null=True)
     product_short_desc = models.TextField('Короткое описание', blank=True)
     product_desc = models.TextField('Артикул', blank=True)
     product_image = models.ImageField('Изображение продукта', default='placeholder.jpg')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category,blank=True)
+    manufacturer = models.ManyToManyField(Manufacturer, blank=True)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     body_editorjs = EditorJsJSONField()
     product_slug = models.CharField('URL', max_length=200, default='product' + str(datetime.datetime.now()))
@@ -42,7 +56,6 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product', args=[self.product_slug])
-
 
 class Article(models.Model):
     article_name = models.CharField('Заголовок H1', max_length=200)
@@ -60,6 +73,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('article', args=[self.article_slug])
+
 
 
 class Region(models.Model):
