@@ -26,6 +26,7 @@ urlpatterns = [
                   path('category/', views.Categorys.as_view(), name='categorys'),
                   path('category/<str:cat_slug>', views.Products.as_view(), name='products'),
                   path('product/<str:product_slug>', views.SingleProduct.as_view(), name='product'),
+                  path('contact/', views.Contacts.as_view(), name='contact'),
                   path('admin/', admin.site.urls),
                   path('editorjs/', include('django_editorjs_fields.urls')),
 

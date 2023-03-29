@@ -22,3 +22,7 @@ class SingleProduct(View):
     def get(self, request, product_slug):
         product = Product.objects.get(product_slug=product_slug)
         return render(request, 'product.html', {'product': product})
+
+class Contacts(View):
+    def get(self, request):
+        return render(request, 'contact.html')
