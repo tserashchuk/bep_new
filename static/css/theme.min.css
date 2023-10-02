@@ -18683,6 +18683,13 @@ input[type=number] {
     height: inherit
 }
 
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0
+}
+
+
 .avatar-xl.avatar-4x3 {
     width: 7.5rem;
     height: auto;
