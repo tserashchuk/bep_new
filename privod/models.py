@@ -48,7 +48,8 @@ class Product(models.Model):
     category = models.ManyToManyField(Category,blank=True)
     manufacturer = models.ManyToManyField(Manufacturer, blank=True)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
-    body_editorjs = EditorJsJSONField()
+    characteristics = EditorJsJSONField(default=dict)
+    longdescription = EditorJsJSONField(default=dict)
     product_slug = models.CharField('URL', max_length=200, default='product' + str(datetime.datetime.now()))
 
     def __str__(self):
