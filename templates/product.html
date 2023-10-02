@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load editorjs %}
 {% block content %}
 <main id="content" role="main" class="content-space-t-4">
     <!-- Breadcrumb -->
@@ -34,29 +35,27 @@
 
             <div class="mb-7">
               <h1 class="h4">Категория</h1>
-
-              <a class="btn btn-soft-secondary btn-xs me-1 mb-2" href="../category/{{ product.category.cat_slug }}">{{ product.category }}</a>
-
+{% for cat in product.category.all%}
+              <a class="btn btn-soft-secondary btn-xs me-1 mb-2" href="../category/{{ product.category.cat_slug }}">{{ cat }}</a>
+{% endfor %}
             </div>
 
             <div class="d-none d-md-block mb-7">
-              <h4>Developer</h4>
+              <h4>Производитель</h4>
+              {% for manufact in product.manufacturer.all %}
 
               <a class="d-flex align-items-center" href="#">
                 <div class="flex-shrink-0">
-                  <img class="avatar avatar-xs" src="../assets/svg/brands/google-drive-icon.svg" alt="Logo">
+                  <img class="avatar avatar-xs" src="{{ manufact.manufacturer_image.url}}" alt="Logo">
                 </div>
                 <div class="flex-grow-1 ms-2">
-                  <span class="link link-secondary">Google Drive</span>
+                  <span class="link link-secondary">{{manufact}}</span>
                 </div>
               </a>
+              {% endfor %}
             </div>
 
-            <div class="d-none d-md-block mb-7">
-              <h4>Website</h4>
-
-              <a class="link" href="#">https://www.google.com/drive/</a>
-            </div>
+        
 
             <div class="d-none d-md-block mb-7">
               <h4>Developer links</h4>
@@ -87,6 +86,7 @@
           <div class="ps-lg-2">
             <div class="mb-5">
               <h2>{{ product.product_name }}</h2>
+              <div>{{ product.product_short_desc }}</div>
             </div>
 
             <!-- Nav Scroller -->
@@ -106,15 +106,15 @@
               <!-- Nav -->
               <ul class="nav nav-segment nav-fill mb-7" id="featuresTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <a class="nav-link active" href="#featuresOne" id="featuresOne-tab" data-bs-toggle="tab" data-bs-target="#featuresOne" role="tab" aria-controls="featuresOne" aria-selected="true" style="min-width: 7rem;">App info</a>
+                  <a class="nav-link active" href="#featuresOne" id="featuresOne-tab" data-bs-toggle="tab" data-bs-target="#featuresOne" role="tab" aria-controls="featuresOne" aria-selected="true" style="min-width: 7rem;">Описание</a>
                 </li>
 
                 <li class="nav-item" role="presentation">
-                  <a class="nav-link" href="#featuresTwo" id="featuresTwo-tab" data-bs-toggle="tab" data-bs-target="#featuresTwo" role="tab" aria-controls="featuresTwo" aria-selected="false" style="min-width: 7rem;">Review</a>
+                  <a class="nav-link" href="#featuresTwo" id="featuresTwo-tab" data-bs-toggle="tab" data-bs-target="#featuresTwo" role="tab" aria-controls="featuresTwo" aria-selected="false" style="min-width: 7rem;">Характеристики</a>
                 </li>
 
                 <li class="nav-item" role="presentation">
-                  <a class="nav-link" href="#featuresThree" id="featuresThree-tab" data-bs-toggle="tab" data-bs-target="#featuresThree" role="tab" aria-controls="featuresThree" aria-selected="false" style="min-width: 7rem;">Pricing</a>
+                  <a class="nav-link" href="#featuresThree" id="featuresThree-tab" data-bs-toggle="tab" data-bs-target="#featuresThree" role="tab" aria-controls="featuresThree" aria-selected="false" style="min-width: 7rem;">Документация</a>
                 </li>
               </ul>
               <!-- End Nav -->
@@ -124,22 +124,7 @@
             <!-- Tab Content -->
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active" id="featuresOne" role="tabpanel" aria-labelledby="featuresOne-tab">
-                <p>Use Google Drive within Slack to:</p>
-
-                <ul class="list-unstyled list-pointer mb-5">
-                  <li class="list-pointer-item">Create new Google Docs, Slides, and Sheets files</li>
-                  <li class="list-pointer-item">Import an existing file from Google Drive into a channel or direct message</li>
-                  <li class="list-pointer-item">Search directly within Google Drive files shared within Slack</li>
-                  <li class="list-pointer-item">Automatically grant access to the files you share with the right audience</li>
-                  <li class="list-pointer-item">Get updates in Slack on changes in Drive, like comments, access requests, and new files shared with you</li>
-                  <li class="list-pointer-item">Reply directly to comment notifications from within Slack and have them posted to the file</li>
-                </ul>
-
-                <div class="d-grid gap-4">
-                  <img class="img-fluid rounded-2" src="../assets/img/900x450/img5.jpg" alt="Image Description">
-                  <img class="img-fluid rounded-2" src="../assets/img/900x450/img4.jpg" alt="Image Description">
-                  <img class="img-fluid rounded-2" src="../assets/img/900x450/img3.jpg" alt="Image Description">
-                </div>
+               {{ product.body_editorjs | editorjs }}
               </div>
 
               <div class="tab-pane fade" id="featuresTwo" role="tabpanel" aria-labelledby="featuresTwo-tab">
