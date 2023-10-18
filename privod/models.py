@@ -95,7 +95,7 @@ class Region(models.Model):
 
 
 class Punkt(models.Model):
-    punkt_name = models.CharField('Название пункта приема', max_length=200)
+    punkt_name = models.CharField('Название офиса', max_length=200)
     punkt_title = models.CharField('Заголовок для Open Graph (og:title)', max_length=200)
     punkt_metadesc = models.CharField('Описание для Open Graph (og:description)', max_length=300)
     punkt_short_desc = models.TextField('Короткое описание', blank=True)
