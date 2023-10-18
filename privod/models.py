@@ -50,6 +50,7 @@ class Product(models.Model):
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     characteristics = EditorJsJSONField(default=dict)
     longdescription = EditorJsJSONField(default=dict)
+    documentationfield = EditorJsJSONField(default=dict)
     product_slug = models.CharField('URL', max_length=200, default='product' + str(datetime.datetime.now()))
 
     def __str__(self):
