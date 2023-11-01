@@ -4,9 +4,10 @@ from privod.models import *
 
 class Home(View):
     def get(self, request):
-        products = Product.objects.all()
-        categorys = Category.objects.all()
-        return render(request, 'index.html', {'products':products,'categorys':categorys})
+        products = Product.objects.filter(pin_main=True)
+        categorys = Category.objects.filter(pin_main_first=True)
+        categorys_sec = Category.objects.filter(pin_main_sec=True)
+        return render(request, 'index.html', {'products':products,'categorys':categorys,'categorys_sec':categorys_sec})
 
 class Categorys(View):
     def get(self, request):
