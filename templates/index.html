@@ -23,7 +23,7 @@
                             <!-- Card -->
                             <div class="card card-sm card-transition shadow-sm">
                                 <img class="card-img-top"
-                                     src="https://htmlstream.com/preview/front-v4.3.1/assets/img/400x200/img1.jpg"
+                                     src="{{ item.cat_image.url }}"
                                      alt="Image Description">
 
                                 <div class="card-body">
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                             <!-- End Card -->
-                        </div> {%endfor%}
+                        </div> {% endfor %}
                         <!-- End Slide -->
 
                         
@@ -98,14 +98,14 @@
                   <a class="card-body" href="../demo-app-marketplace/app-overview.html">
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs" src="../assets/svg/brands/the-ocean-icon.svg" alt="Logo">
+                        <img class="avatar avatar-xs" src="{{item.cat_image.url}}" alt="Logo" style="width: 3.75rem; height: auto;">
                       </div>
 
                       <div class="flex-grow-1 ms-3">
                         <div class="d-flex align-items-center">
-                          <h5 class="card-title mb-0">The Ocean</h5>
+                          <h5 class="card-title mb-0">{{ item.cat_name }}</h5>
                         </div>
-                        <p class="card-text text-body small">Productivity</p>
+                        <p class="card-text text-body small">{{ item.product_set.all | length }} моделей</p>
                       </div>
                     </div>
                   </a>
@@ -287,8 +287,8 @@
       <div class="container position-relative zi-1 content-space-3 content-space-sm-4">
         <!-- Heading -->
         <div class="w-md-75 w-lg-50 text-center mx-md-auto">
-          <h2 class="h1">The complete theme for internet business</h2>
-          <p>Millions of the world's most innovative technology companies are scaling faster and more efficiently by building their businesses on Front.</p>
+          <h2 class="h1">Ваше производство в надежных руках</h2>
+          <p>Мы работаем с десятками производителей, это позволяет нам всегда подобрать правильное решение для вашего производства.</p>
           <a class="link" href="#">Discover how businesses use Front <i class="bi-chevron-right small ms-1"></i></a>
         </div>
         <!-- End Heading -->
