@@ -108,7 +108,7 @@ class Punkt(models.Model):
     body_editorjs = EditorJsJSONField()
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
-1
+    
     def __str__(self):
         return self.punkt_name
 
