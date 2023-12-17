@@ -27929,6 +27929,12 @@ font-size: 1rem; !important;
     background-position: top center
 }
 
+.bg-img-nostart {
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
 .bg-img-end {
     background-size: cover;
     background-repeat: no-repeat;

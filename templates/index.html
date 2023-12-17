@@ -7,53 +7,50 @@
         <div class="gradient-y-sm-primary position-relative zi-2 overflow-hidden">
             <div class="container position-relative content-space-t-3 content-space-t-lg-4 content-space-b-2">
                 <!-- Heading -->
-                <div class="w-md-80 w-lg-70 text-center mx-md-auto mb-5 mb-md-9">
-                    <h1 class="display-4 mb-3">БелЕвропривод</h1>
-                    <p class="lead">Редукторы, мотор-редукторы и машиностроительное оборудование <br> по всей Беларуси и за ее пределы</p>
+                <div class="w-md-80 w-lg-70 mx-md-auto mb-5 mb-md-9">
+                    <h1 class="display-4 mb-3">БелЕвропривод - редукторы и машиностроительное оборудование</h1>
+                    <p class="lead">Мы поставляем машиностроительное оборудование по всей Беларуси и России</p>
                 </div>
                 <!-- End Title & Description -->
 
-                <!-- Swiper Slider -->
-                <div class="js-swiper-software-hero swiper zi-2 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
-                    <div class="swiper-wrapper" id="swiper-wrapper-35df7105bf10cd47e8" aria-live="polite"
-                         style="transform: translate3d(0px, 0px, 0px);">
-                        {% for item in categorys%}<!-- Slide -->
-                        <div class="swiper-slide my-2 swiper-slide-active" role="group" aria-label="1 / 5"
-                             style="width: 199.2px; margin-right: 30px;">
-                            <!-- Card -->
-                            <div class="card card-sm card-transition shadow-sm">
-                                <img class="card-img-top"
-                                     src="{{ item.cat_image.url }}"
-                                     alt="Image Description">
 
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ item.cat_name }}</h4>
-                                    <p class="card-text small">{{ item.product_set.all | length }} моделей</p>
 
-                                    <div class="d-grid">
-                                        <a class="btn btn-primary btn-sm" href="#">Подробнее</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Card -->
-                        </div> {% endfor %}
-                        <!-- End Slide -->
 
-                        
-                    </div>
 
-                    <!-- Pagination -->
-                    <div class="js-swiper-software-hero-pagination swiper-pagination d-lg-none swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-bullets-dynamic swiper-pagination-lock"
-                         style="width: 40px;"><span
-                            class="swiper-pagination-bullet swiper-pagination-bullet-active swiper-pagination-bullet-active-main"
-                            tabindex="0" role="button" aria-label="Go to slide 1" aria-current="true"
-                            style="left: 0px;"></span></div>
 
-                    <!-- Preloader -->
 
-                    <!-- End Preloader -->
-                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                <!-- ENd Swiper Slider -->
+<!-- Card Grid -->
+<div class="container">
+  <div class="row">
+    {% for item in categorys%}
+    <div class="col-lg-6 mb-3 pb-3 mb-lg-0">
+      <!-- Card -->
+      <div class="card h-100 overflow-hidden zi-999">
+        <div class="row align-items-center">
+          <div class="col-7">
+            <div class="card-body">
+              <h3 class="card-title">{{ item.cat_name }}</h3>
+              <p class="card-text">{{ item.cat_short_desc |truncatechars:40 }}</p>
+              <a class="card-link" href="#">Посмотреть {{ item.product_set.all | length }} моделей<i class="bi-chevron-right small ms-1"></i></a>
+            </div>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-5 bg-img-nostart h-100 px-0" style="background-image: url({{ item.cat_image.url }});"></div>
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+{%endfor%}
+
+  </div>
+  <!-- End Row -->
+</div>
+<!-- End Card Grid -->
+
+
 
                 <!-- SVG Shape -->
                 <figure class="position-absolute zi-n1" style="top: -35rem; left: 50rem; width: 62rem; height: 62rem;">
