@@ -20,32 +20,53 @@
         <div class="col-lg-12">
           <div class="row row-cols-sm-2 row-cols-md-4 mb-10">
               {% for product in category.product_set.all %}
-            <div class="col mb-4">
-              <!-- Card -->
-              <div class="card card-bordered shadow-none text-center h-100">
-                <div class="card-pinned">
-                  <img class="card-img-top" src="{{ product.product_image.url }}" alt="Image Description">
-                </div>
-                <div class="card-body">
-                  <div class="mb-2">
-                    <a class="link-sm link-secondary" href="#">Accessories</a>
+              <div class="col-sm-6 col-lg-3 my-5 mb-lg-0">
+                <!-- Card -->
+                <div class="card card-sm shadow-sm mb-4" style="height: 100%">
+                  <div class="card-body">
+                    <div
+                      style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        height: 100%;
+                        justify-content: space-between;
+                        
+                      "
+                     >
+                      <div>
+                        <div style="width: auto; height: 200px;overflow:hidden;">
+                        <img
+                          style="
+                          width: 100%;
+                          "
+                          src="{{ product.product_image.url }}"
+                          alt="Image Description"
+                        />
+                        </div>
+                        <h3 class="card-title">{{ product.product_name }}</h3>
+                        <p class="card-text">{{product.category.all.0}}</p>
+                        {% if product.manufacturer.all.0.manufacturer_image.url %}
+                        <div class="mb-4">
+                          <img
+                            class="avatar avatar-4x3 me-2"
+                            src="{{product.manufacturer.all.0.manufacturer_image.url}}"
+                            alt="Figma"
+                          />
+                        </div>
+                        {% endif %}
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-outline-secondary">
+                          Подробнее
+                        </button>
+                      </div>
+                    </div>
                   </div>
-
-                  <h4 class="card-title">
-                    <a class="text-dark" href="../demo-shop/product-overview.html">{{ product.product_name }}</a>
-                  </h4>
-
                 </div>
-
-                <div class="card-footer pt-0">
-                  <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Add to cart</button>
-
-                </div>
+                <!-- End Card -->
               </div>
-              <!-- End Card -->
-
-            </div>
-            <!-- End Col -->
+              <!-- End Col -->
 {% endfor %}
           </div>
           <!-- End Row -->

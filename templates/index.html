@@ -1,303 +1,553 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-    <!-- ========== MAIN CONTENT ========== -->
-    <main id="content" role="main">
-        <!-- Hero -->
-        <div class="gradient-y-sm-primary position-relative zi-2 overflow-hidden">
-            <div class="container position-relative content-space-t-3 content-space-t-lg-4 content-space-b-2">
-                <!-- Heading -->
-                <div class="w-md-80 w-lg-70 mx-md-auto mb-5 mb-md-9">
-                    <h1 class="display-4 mb-3">БелЕвропривод - редукторы и машиностроительное оборудование</h1>
-                    <p class="lead">Мы поставляем машиностроительное оборудование по всей Беларуси и России</p>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+  <!-- Hero -->
+  <div class="gradient-y-sm-primary position-relative zi-2 overflow-hidden">
+    <div
+      class="container position-relative content-space-t-3 content-space-t-lg-4 content-space-b-2"
+    >
+      <!-- Heading -->
+      <div class="w-md-80 w-lg-70 mx-md-auto mb-5 mb-md-9">
+        <h1 class="display-4 mb-3">
+          БелЕвропривод - редукторы и машиностроительное оборудование
+        </h1>
+        <p class="lead">
+          Мы поставляем машиностроительное оборудование по всей Беларуси и
+          России
+        </p>
+      </div>
+      <!-- End Title & Description -->
+
+      <!-- Card Grid -->
+      <div class="container">
+        <div class="row">
+          {% for item in categorys%}
+          <div class="col-lg-6 mb-3 pb-3 mb-lg-0">
+            <!-- Card -->
+            <div class="card h-100 overflow-hidden zi-999">
+              <div class="row align-items-center">
+                <div class="col-7">
+                  <div class="card-body">
+                    <h3 class="card-title">{{ item.cat_name }}</h3>
+                    <p class="card-text">
+                      {{ item.cat_short_desc |truncatechars:40 }}
+                    </p>
+                    <a class="card-link" href="#"
+                      >Посмотреть {{ item.product_set.all | length }} моделей<i
+                        class="bi-chevron-right small ms-1"
+                      ></i
+                    ></a>
+                  </div>
                 </div>
-                <!-- End Title & Description -->
+                <!-- End Col -->
 
+                <div
+                  class="col-5 bg-img-nostart h-100 px-0"
+                  style="background-image: url({{ item.cat_image.url }});"
+                ></div>
+              </div>
+              <!-- End Row -->
+            </div>
+            <!-- End Card -->
+          </div>
+          <!-- End Col -->
+          {%endfor%}
+        </div>
+        <!-- End Row -->
+      </div>
+      <!-- End Card Grid -->
 
+      <!-- SVG Shape -->
+      <figure
+        class="position-absolute zi-n1"
+        style="top: -35rem; left: 50rem; width: 62rem; height: 62rem"
+      >
+        <svg
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          viewBox="0 0 260 260"
+        >
+          <circle
+            fill="#e7eaf3"
+            opacity=".7"
+            cx="130"
+            cy="130"
+            r="130"
+          ></circle>
+        </svg>
+      </figure>
+      <!-- End SVG Shape -->
 
+      <!-- SVG Shape -->
+      <figure
+        class="position-absolute zi-n1"
+        style="top: 15rem; left: 70rem; width: 20rem; height: 20rem"
+      >
+        <img class="img-fluid" src="{% static
+        "/svg/components/circled-stripe.svg" %}" alt="Image Description">
+      </figure>
+      <!-- End SVG Shape -->
 
+      <!-- SVG Shape -->
+      <figure
+        class="position-absolute zi-n1"
+        style="bottom: 11rem; left: -3rem; width: 15rem; height: 15rem"
+      >
+        <img class="img-fluid" src="{% static "/svg/components/dots.svg" %}"
+        alt="Image Description">
+      </figure>
+      <!-- End SVG Shape -->
+    </div>
 
+    <!-- Shape -->
+    <div class="shape shape-bottom zi-1">
+      <svg
+        width="3000"
+        height="500"
+        viewBox="0 0 3000 500"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 500H3000V0L0 500Z" fill="#fff"></path>
+      </svg>
+    </div>
+    <!-- End Shape -->
+  </div>
+  <!-- End Hero -->
+  <div class="container">
+    <div class="row gx-3 mx-n2 mb-7">
+      {% for item in categorys_sec %}
+      <div class="col-sm-6 col-md-4 mb-3">
+        <!-- Card -->
+        <div class="card card-bordered card-transition shadow-none h-100">
+          <a class="card-body" href="../demo-app-marketplace/app-overview.html">
+            <div class="d-flex">
+              <div class="flex-shrink-0">
+                <img
+                  class="avatar avatar-xs"
+                  src="{{item.cat_image.url}}"
+                  alt="Logo"
+                  style="width: 3.75rem; height: auto"
+                />
+              </div>
 
+              <div class="flex-grow-1 ms-3">
+                <div class="d-flex align-items-center">
+                  <h5 class="card-title mb-0">{{ item.cat_name }}</h5>
+                </div>
+                <p class="card-text text-body small">
+                  {{ item.product_set.all | length }} моделей
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+      {% endfor %}
+    </div>
+    <!-- Title -->
 
-<!-- Card Grid -->
-<div class="container">
-  <div class="row">
-    {% for item in categorys%}
-    <div class="col-lg-6 mb-3 pb-3 mb-lg-0">
-      <!-- Card -->
-      <div class="card h-100 overflow-hidden zi-999">
-        <div class="row align-items-center">
-          <div class="col-7">
+    {% comment %}
+    <div class="w-md-75 w-lg-100 mx-md-auto mb-5 mb-md-9">
+      <div class="row">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <!-- Card -->
+          <a
+            class="card card-transition align-items-end flex-wrap flex-row bg-img-start h-100"
+            href="#"
+            style="
+              background-image: url('{% static '/svg/components/card-4.svg' %}');
+              min-height: 25rem;
+            "
+          >
             <div class="card-body">
-              <h3 class="card-title">{{ item.cat_name }}</h3>
-              <p class="card-text">{{ item.cat_short_desc |truncatechars:40 }}</p>
-              <a class="card-link" href="#">Посмотреть {{ item.product_set.all | length }} моделей<i class="bi-chevron-right small ms-1"></i></a>
+              <h2 class="card-title text-white">
+                Revolutionizing the way start-ups win new customers
+              </h2>
+              <p class="card-text text-white">
+                Automate best strategies and focus more on generating hq
+                creatives.
+              </p>
+              <span class="card-link link-light"
+                >Learn more <i class="bi-chevron-right small ms-1"></i
+              ></span>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-6 col-lg-3 mb-4 mb-sm-0">
+          <!-- Card -->
+          <a
+            class="card card-transition align-items-end flex-wrap flex-row bg-img-start h-100"
+            href="#"
+            style="
+              background-image: url('{% static '/svg/components/card-5.svg' %}');
+              min-height: 25rem;
+            "
+          >
+            <div class="card-body">
+              <h3 class="card-title text-white">
+                How we helped building the industry of the future
+              </h3>
+              <span class="card-link link-light"
+                >Learn more <i class="bi-chevron-right small ms-1"></i
+              ></span>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-6 col-lg-3">
+          <!-- Card -->
+          <a
+            class="card card-transition align-items-end flex-wrap flex-row bg-img-start h-100"
+            href="#"
+            style="
+              background-image: url('{% static '/svg/components/card-6.svg' %}');
+              min-height: 25rem;
+            "
+          >
+            <div class="card-body">
+              <h3 class="card-title text-white">
+                How to save hundreds of thousands
+              </h3>
+              <span class="card-link link-light"
+                >Learn more <i class="bi-chevron-right small ms-1"></i
+              ></span>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    {% endcomment %}
+
+    <div class="w-md-75 w-lg-100 mx-md-auto mb-5 mb-md-9">
+      <div class="row row-cols-2 row row-cols-1">
+        <div class="col-lg-4 col-12 align-self-center">
+          <h2>Популярные продукты</h2>
+        </div>
+        <div class="col-lg-8 col-12">
+          <div class="card card-sm overflow-hidden">
+            <!-- Card -->
+            <div class="card-body">
+              <div
+                class="row justify-content-md-start align-items-md-center text-center text-md-start"
+              >
+                <div class="col-md offset-md-3 mb-3 mb-md-0">
+                  <h4 class="card-title">Нужна доставка до двери?</h4>
+                </div>
+
+                <div class="col-md-auto">
+                  <a class="btn btn-primary btn-transition" href="#"
+                    >Заказать доставку</a
+                  >
+                </div>
+              </div>
+
+              <!-- SVG Shape -->
+              <figure
+                class="w-25 d-none d-md-block position-absolute top-0 start-0 mt-n2"
+              >
+                <svg
+                  viewBox="0 0 451 902"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    opacity="0.125"
+                    d="M0 82C203.8 82 369 247.2 369 451C369 654.8 203.8 820 0 820"
+                    stroke="url(#paint2_linear)"
+                    stroke-width="164"
+                    stroke-miterlimit="10"
+                  ></path>
+                  <defs>
+                    <linearGradient
+                      id="paint2_linear"
+                      x1="323.205"
+                      y1="785.242"
+                      x2="-97.6164"
+                      y2="56.3589"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop
+                        offset="0"
+                        stop-color="white"
+                        stop-opacity="0"
+                      ></stop>
+                      <stop offset="1" stop-color="#377dff"></stop>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </figure>
+              <!-- End SVG Shape -->
+            </div>
+            <!-- End Card -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Title -->
+
+    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
+      {% for product in products %}
+
+      <div class="col-sm-6 col-lg-3 my-5 mb-lg-0">
+        <!-- Card -->
+        <div class="card card-sm shadow-sm mb-4" style="height: 100%">
+          <div class="card-body">
+            <div
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                height: 100%;
+                justify-content: space-between;
+                
+              "
+             >
+              <div>
+                <div style="width: auto; height: 200px;overflow:hidden;">
+                <img
+                  style="
+                  width: 100%;
+                  "
+                  src="{{ product.product_image.url }}"
+                  alt="Image Description"
+                />
+                </div>
+                <h3 class="card-title">{{ product.product_name }}</h3>
+                <p class="card-text">{{product.category.all.0}}</p>
+                {% if product.manufacturer.all.0.manufacturer_image.url %}
+                <div class="mb-4">
+                  <img
+                    class="avatar avatar-4x3 me-2"
+                    src="{{product.manufacturer.all.0.manufacturer_image.url}}"
+                    alt="Figma"
+                  />
+                </div>
+                {% endif %}
+              </div>
+              <div>
+                <button type="button" class="btn btn-outline-secondary">
+                  Подробнее
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Card -->
+      </div>
+      <!-- End Col -->
+
+      {% comment %}
+      <div class="col mb-4">
+        <!-- Card -->
+        <div class="card card-bordered shadow-none text-center h-100">
+          <div class="card-pinned h-50">
+            <img
+              class="card-img-top"
+              src="{{ product.product_image.url }}"
+              alt="Image Description"
+            />
+
+            <div class="card-pinned-top-end"></div>
+          </div>
+
+          <div class="card-body">
+            <div class="mb-1">
+              <a class="link-sm link-secondary" href="#"
+                >{{product.category.all.0}}</a
+              >
+            </div>
+            <a class="text-body" href="../demo-shop/product-overview.html"
+              >{{ product.product_name }}</a
+            >
+          </div>
+
+          <div class="card-footer pt-0"></div>
+        </div>
+        <!-- End Card -->
+      </div>
+      {% endcomment %} {% endfor %}
+    </div>
+    <!-- End Row -->
+
+    <div class="text-center">
+      <a class="btn btn-outline-primary btn-transition rounded-pill" href="#"
+        >View all products</a
+      >
+    </div>
+  </div>
+
+  <div class="position-relative overflow-hidden content-space-2">
+    <div class="position-absolute top-50 start-50 translate-middle w-100">
+      <div class="container-fluid px-lg-6">
+        <div class="row justify-content-center">
+          <div class="col-3 my-4">
+            <div
+              class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto"
+            >
+              <img class="avatar-img" src="{% static "/img/theme/motovario.png"
+              %}" alt="Logo">
             </div>
           </div>
           <!-- End Col -->
 
-          <div class="col-5 bg-img-nostart h-100 px-0" style="background-image: url({{ item.cat_image.url }});"></div>
+          <div class="col-3 mb-4">
+            <div
+              class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto"
+            >
+              <img class="avatar-img" src="{% static "/img/theme/brevini.png"
+              %}" alt="Logo">
+            </div>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-3 my-4">
+            <div
+              class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto"
+            >
+              <img class="avatar-img" src="{% static
+              "/img/theme/bondioli_pavesi.png" %}" alt="Logo">
+            </div>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <div class="row justify-content-between">
+          <div class="col-3 mb-4">
+            <div class="d-block avatar avatar-xl rounded-circle shadow-sm p-4">
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/slack-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-3 my-4">
+            <div
+              class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 ms-auto"
+            >
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/spotify-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <div class="row">
+          <div class="col-3 offset-1 my-4">
+            <div
+              class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 ms-auto"
+            >
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/paypal-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-3 offset-2 my-4">
+            <div
+              class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 ms-auto"
+            >
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/dropbox-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
+        </div>
+        <!-- End Row -->
+
+        <div class="row justify-content-between">
+          <div class="col-4">
+            <div
+              class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto"
+            >
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/airbnb-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-4 mt-6">
+            <div
+              class="d-none d-sm-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto"
+            >
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/behance-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
+
+          <div class="col-4 mt-6">
+            <div
+              class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto"
+            >
+              <img
+                class="avatar-img"
+                src="./assets/svg/brands/dribbble-icon.svg"
+                alt="Logo"
+              />
+            </div>
+          </div>
+          <!-- End Col -->
         </div>
         <!-- End Row -->
       </div>
-      <!-- End Card -->
     </div>
-    <!-- End Col -->
-{%endfor%}
 
+    <div
+      class="container position-relative zi-1 content-space-3 content-space-sm-4"
+    >
+      <!-- Heading -->
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto">
+        <h2 class="h1">Ваше производство в надежных руках</h2>
+        <p>
+          Мы работаем с десятками производителей, это позволяет нам всегда
+          подобрать правильное решение для вашего производства.
+        </p>
+        <a class="link" href="#"
+          >Discover how businesses use Front
+          <i class="bi-chevron-right small ms-1"></i
+        ></a>
+      </div>
+      <!-- End Heading -->
+    </div>
+
+    <div
+      class="gradient-y-lg-white position-absolute top-0 start-0 w-100 h-100"
+    ></div>
   </div>
-  <!-- End Row -->
-</div>
-<!-- End Card Grid -->
-
-
-
-                <!-- SVG Shape -->
-                <figure class="position-absolute zi-n1" style="top: -35rem; left: 50rem; width: 62rem; height: 62rem;">
-                    <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                         viewBox="0 0 260 260">
-                        <circle fill="#e7eaf3" opacity=".7" cx="130" cy="130" r="130"></circle>
-                    </svg>
-                </figure>
-                <!-- End SVG Shape -->
-
-                <!-- SVG Shape -->
-                <figure class="position-absolute zi-n1" style="top: 15rem; left: 70rem; width: 20rem; height: 20rem;">
-                    <img class="img-fluid" src="{% static "/svg/components/circled-stripe.svg" %}"
-                         alt="Image Description">
-                </figure>
-                <!-- End SVG Shape -->
-
-                <!-- SVG Shape -->
-                <figure class="position-absolute zi-n1"
-                        style="bottom: 11rem; left: -3rem; width: 15rem; height: 15rem;">
-                    <img class="img-fluid" src="{% static "/svg/components/dots.svg" %}" alt="Image Description">
-                </figure>
-                <!-- End SVG Shape -->
-            </div>
-
-            <!-- Shape -->
-            <div class="shape shape-bottom zi-1">
-                <svg width="3000" height="500" viewBox="0 0 3000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 500H3000V0L0 500Z" fill="#fff"></path>
-                </svg>
-            </div>
-            <!-- End Shape -->
-
-        </div>
-        <!-- End Hero -->
-<div class="container">
-<div class="row gx-3 mx-n2 mb-7">
-{% for item in categorys_sec %}
-              <div class="col-sm-6 col-md-4 mb-3">
-                <!-- Card -->
-                <div class="card card-bordered card-transition shadow-none h-100">
-                  <a class="card-body" href="../demo-app-marketplace/app-overview.html">
-                    <div class="d-flex">
-                      <div class="flex-shrink-0">
-                        <img class="avatar avatar-xs" src="{{item.cat_image.url}}" alt="Logo" style="width: 3.75rem; height: auto;">
-                      </div>
-
-                      <div class="flex-grow-1 ms-3">
-                        <div class="d-flex align-items-center">
-                          <h5 class="card-title mb-0">{{ item.cat_name }}</h5>
-                        </div>
-                        <p class="card-text text-body small">{{ item.product_set.all | length }} моделей</p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Card -->
-              </div>
-              <!-- End Col -->
-{% endfor %}
-
-            </div>
-      <!-- Title -->
-      <div class="w-md-75 w-lg-100 mx-md-auto mb-5 mb-md-9">
-          <div class="row row-cols-2 row row-cols-1">
-          <div class="col-lg-4 col-12 align-self-center"><h2>Популярные продукты</h2></div>
-         <div class="col-lg-8 col-12"><div class="card card-sm overflow-hidden">
-          <!-- Card -->
-          <div class="card-body">
-            <div class="row justify-content-md-start align-items-md-center text-center text-md-start">
-              <div class="col-md offset-md-3 mb-3 mb-md-0">
-                <h4 class="card-title">Нужна доставка до двери?</h4>
-              </div>
-
-              <div class="col-md-auto">
-                <a class="btn btn-primary btn-transition" href="#">Заказать доставку</a>
-              </div>
-            </div>
-
-            <!-- SVG Shape -->
-            <figure class="w-25 d-none d-md-block position-absolute top-0 start-0 mt-n2">
-              <svg viewBox="0 0 451 902" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.125" d="M0 82C203.8 82 369 247.2 369 451C369 654.8 203.8 820 0 820" stroke="url(#paint2_linear)" stroke-width="164" stroke-miterlimit="10"></path>
-                <defs>
-                  <linearGradient id="paint2_linear" x1="323.205" y1="785.242" x2="-97.6164" y2="56.3589" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" stop-color="white" stop-opacity="0"></stop>
-                    <stop offset="1" stop-color="#377dff"></stop>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </figure>
-            <!-- End SVG Shape -->
-          </div>
-          <!-- End Card -->
-         </div></div>
-          </div>
-      </div>
-      <!-- End Title -->
-
-      <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mb-3">
-
-          {% for product in products %}
-        <div class="col mb-4">
-          <!-- Card -->
-          <div class="card card-bordered shadow-none text-center h-100">
-            <div class="card-pinned">
-              <img class="card-img-top" src="{{ product.product_image.url }}" alt="Image Description">
-
-              <div class="card-pinned-top-start">
-                <span class="badge bg-success rounded-pill">New arrival</span>
-              </div>
-
-              <div class="card-pinned-top-end">
-
-              </div>
-            </div>
-
-            <div class="card-body">
-              <div class="mb-1">
-                <a class="link-sm link-secondary" href="#">Accessories</a>
-              </div>
-              <a class="text-body" href="../demo-shop/product-overview.html">{{ product.product_name }}</a>
-              <p class="card-text text-dark">$56.99</p>
-            </div>
-
-            <div class="card-footer pt-0">
-              <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Add to cart</button>
-            </div>
-          </div>
-          <!-- End Card -->
-        </div>
-            {% endfor %}
-
-      </div>
-      <!-- End Row -->
-
-      <div class="text-center">
-        <a class="btn btn-outline-primary btn-transition rounded-pill" href="#">View all products</a>
-      </div>
-    </div>
-
-
-
-    <div class="position-relative overflow-hidden content-space-2">
-      <div class="position-absolute top-50 start-50 translate-middle w-100">
-        <div class="container-fluid px-lg-6">
-          <div class="row justify-content-center">
-            <div class="col-3 my-4">
-              <div class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto">
-                <img class="avatar-img" src="{% static "/img/theme/motovario.png" %}" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-3 mb-4">
-              <div class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto">
-                <img class="avatar-img" src="{% static "/img/theme/brevini.png" %}" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-3 my-4">
-              <div class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto">
-                <img class="avatar-img" src="{% static "/img/theme/bondioli_pavesi.png" %}" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-
-          <div class="row justify-content-between">
-            <div class="col-3 mb-4">
-              <div class="d-block avatar avatar-xl rounded-circle shadow-sm p-4">
-                <img class="avatar-img" src="./assets/svg/brands/slack-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-3 my-4">
-              <div class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 ms-auto">
-                <img class="avatar-img" src="./assets/svg/brands/spotify-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-
-          <div class="row">
-            <div class="col-3 offset-1 my-4">
-              <div class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 ms-auto">
-                <img class="avatar-img" src="./assets/svg/brands/paypal-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-3 offset-2 my-4">
-              <div class="d-none d-md-block avatar avatar-xl rounded-circle shadow-sm p-4 ms-auto">
-                <img class="avatar-img" src="./assets/svg/brands/dropbox-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-
-          <div class="row justify-content-between">
-            <div class="col-4">
-              <div class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto">
-                <img class="avatar-img" src="./assets/svg/brands/airbnb-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-4 mt-6">
-              <div class="d-none d-sm-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto">
-                <img class="avatar-img" src="./assets/svg/brands/behance-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-4 mt-6">
-              <div class="d-block avatar avatar-xl rounded-circle shadow-sm p-4 mx-auto">
-                <img class="avatar-img" src="./assets/svg/brands/dribbble-icon.svg" alt="Logo">
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-        </div>
-      </div>
-
-      <div class="container position-relative zi-1 content-space-3 content-space-sm-4">
-        <!-- Heading -->
-        <div class="w-md-75 w-lg-50 text-center mx-md-auto">
-          <h2 class="h1">Ваше производство в надежных руках</h2>
-          <p>Мы работаем с десятками производителей, это позволяет нам всегда подобрать правильное решение для вашего производства.</p>
-          <a class="link" href="#">Discover how businesses use Front <i class="bi-chevron-right small ms-1"></i></a>
-        </div>
-        <!-- End Heading -->
-      </div>
-
-      <div class="gradient-y-lg-white position-absolute top-0 start-0 w-100 h-100"></div>
-    </div>
-
-
-
-    </main>
-    <!-- ========== END MAIN CONTENT ========== -->
-
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
 
 {% endblock %}
