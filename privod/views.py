@@ -27,4 +27,6 @@ class SingleProduct(View):
 
 class Contacts(View):
     def get(self, request):
-        return render(request, 'contact.html')
+        regions = Region.objects.all()
+        print(regions)
+        return render(request, 'contact.html', {'regions':regions})

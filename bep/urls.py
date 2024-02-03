@@ -29,5 +29,6 @@ urlpatterns = [
                   path('contact/', views.Contacts.as_view(), name='contact'),
                   path('admin/', admin.site.urls),
                   path('editorjs/', include('django_editorjs_fields.urls')),
+                  
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

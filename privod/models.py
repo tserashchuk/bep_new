@@ -106,6 +106,7 @@ class Punkt(models.Model):
     punkt_geo = models.CharField('Описание description', max_length=300, default="55.659173,37.762848")
     punkt_image = models.ImageField('Изображение пункта')
     body_editorjs = EditorJsJSONField()
+    punkt_map_key = models.CharField('Ключ карты Яндекс', max_length=200, blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     

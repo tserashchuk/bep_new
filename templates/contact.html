@@ -1,162 +1,278 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <div class="container content-space-t-3 content-space-t-lg-5 content-space-b-2">
-        <div class="row">
-            <div class="col-lg-6 mb-9 mb-lg-0">
-                <!-- Heading -->
-                <div class="mb-5">
-                    <h1>Свяжитесь с нами</h1>
-                    <p>Мы подберем для вас подходящее оборудование</p>
+{% load static %} 
+{% load editorjs %}
+<div class="container content-space-t-3 content-space-t-lg-5 content-space-b-2">
+  <div class="row">
+    <div class="col-lg-3 mb-9 mb-lg-0">
+      <!-- Heading -->
+      <div class="mb-5">
+        <h1>Свяжитесь с нами</h1>
+
+      </div>
+      <!-- End Heading -->
+
+      <!-- Leaflet -->
+      <div class="overflow-hidden">
+        <div id="map" class="leaflet mb-5">
+          <!-- Form -->
+
+          
+            <!-- Form -->
+            <div class="mx-auto" style="max-width: 35rem;">
+              <!-- Form -->
+              <form>
+
+                <!-- Form -->
+                <div class="mb-4">
+
+                  <input type="text" class="form-control form-control-lg" name="hireUsFormNameFirstName"
+                    id="hireUsFormFirstName" placeholder="Ваше имя" aria-label="Ваше имя">
                 </div>
-                <!-- End Heading -->
+                <!-- End Form -->
 
-                <!-- Leaflet -->
-                <div class="overflow-hidden">
-                    <div id="map" class="leaflet mb-5"
-                         data-hs-leaflet-options='{
-                 "map": {
-                   "scrollWheelZoom": false,
-                   "coords": [37.4040344, -122.0289704]
-                 },
-                 "marker": [
-                   {
-                     "coords": [37.4040344, -122.0289704],
-                     "icon": {
-                       "iconUrl": "./assets/svg/components/map-pin.svg",
-                       "iconSize": [50, 45]
-                     },
-                     "popup": {
-                       "text": "153 Williamson Plaza, Maggieberg"
-                     }
-                   }
-                 ]
-                }'></div>
+                <!-- End Form -->
+
+                <!-- Form -->
+                <div class="mb-4">
+
+                  <input type="email" class="form-control form-control-lg" name="hireUsFormNameWorkEmail"
+                    id="hireUsFormWorkEmail" placeholder="Ваш телефон или почта" aria-label="Ваш телефон или почта">
                 </div>
-                <!-- End Leaflet -->
+                <!-- End Form -->
 
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h5 class="mb-1">Офис Минск:</h5>
-                        <span>Телефон: +375 17 374 74 54</span>
-                        <span>Телефон: +375 17 338 30 33</span>
-                        <span>Мобильный: +375 29 6815 200</span>
-                        <span>Email : europrivod@mail.ru</span><br>
-                        <span>ул. Солтыса 39, г. Минск 220137</span>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-sm-6">
-                        <h5 class="mb-1">Email us:</h5>
-                        <p>hello@example.com</p>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-sm-6">
-                        <h5 class="mb-1">Офис Тула:</h5>
-                        <span>Мобильный: +7 930 891 9777</span>
-                        <span>Мобильный: +7 906 531 31 25</span>
-                        <span>Телефон/Факс: +7(4872) 230-278</span>
-                        <span>300 028 Тула ул. Ползунова 3 оф 46</span>
-                    </div>
-                    <!-- End Col -->
+                <!-- Form -->
+                <div class="mb-4">
+                  <textarea class="form-control form-control-lg" name="hireUsFormNameDetails" id="hireUsFormDetails"
+                    placeholder="Пожалуйста напишите Ваш вопрос в этом поле..." aria-label="Пожалуйста напишите Ваш вопрос в этом поле..."
+                    rows="4"></textarea>
                 </div>
-                <!-- End Row -->
+                <!-- End Form -->
+
+                <div class="d-grid mb-2">
+                  <button type="submit" class="btn btn-primary btn-lg">Отправить</button>
+                </div>
+
+                <div class="text-center">
+                  <span class="form-text">Мы ответим вам в ближайшее время</span>
+                </div>
+              </form>
+              <!-- End Form -->
             </div>
-            <!-- End Col -->
+            <!-- End Form -->
+         
+          <!-- End Form -->
 
-            <div class="col-lg-6">
-                <div class="ps-lg-5">
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-header border-bottom text-center">
-                            <h3 class="card-header-title">General inquiries</h3>
-                        </div>
-
-                        <div class="card-body">
-                            <!-- Form -->
-                            <form>
-                                <div class="row gx-3">
-                                    <div class="col-sm-6">
-                                        <!-- Form -->
-                                        <div class="mb-3">
-                                            <label class="form-label" for="hireUsFormFirstName">First name</label>
-                                            <input type="text" class="form-control form-control-lg"
-                                                   name="hireUsFormNameFirstName" id="hireUsFormFirstName"
-                                                   placeholder="First name" aria-label="First name">
-                                        </div>
-                                        <!-- End Form -->
-                                    </div>
-                                    <!-- End Col -->
-
-                                    <div class="col-sm-6">
-                                        <!-- Form -->
-                                        <div class="mb-3">
-                                            <label class="form-label" for="hireUsFormLasttName">Last name</label>
-                                            <input type="text" class="form-control form-control-lg"
-                                                   name="hireUsFormNameLastName" id="hireUsFormLasttName"
-                                                   placeholder="Last name" aria-label="Last name">
-                                        </div>
-                                        <!-- End Form -->
-                                    </div>
-                                    <!-- End Col -->
-                                </div>
-                                <!-- End Row -->
-
-                                <div class="row gx-3">
-                                    <div class="col-sm-6">
-                                        <!-- Form -->
-                                        <div class="mb-3">
-                                            <label class="form-label" for="hireUsFormWorkEmail">Email address</label>
-                                            <input type="email" class="form-control form-control-lg"
-                                                   name="hireUsFormNameWorkEmail" id="hireUsFormWorkEmail"
-                                                   placeholder="email@site.com" aria-label="email@site.com">
-                                        </div>
-                                        <!-- End Form -->
-                                    </div>
-                                    <!-- End Col -->
-
-                                    <div class="col-sm-6">
-                                        <!-- Form -->
-                                        <div class="mb-3">
-                                            <label class="form-label" for="hireUsFormPhone">Phone <span
-                                                    class="form-label-secondary">(Optional)</span></label>
-                                            <input type="text" class="form-control form-control-lg"
-                                                   name="hireUsFormNamePhone" id="hireUsFormPhone"
-                                                   placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx">
-                                        </div>
-                                        <!-- End Form -->
-                                    </div>
-                                    <!-- End Col -->
-                                </div>
-                                <!-- End Row -->
-
-                                <!-- Form -->
-                                <div class="mb-3">
-                                    <label class="form-label" for="hireUsFormDetails">Details</label>
-                                    <textarea class="form-control form-control-lg" name="hireUsFormNameDetails"
-                                              id="hireUsFormDetails" placeholder="Tell us about your ..."
-                                              aria-label="Tell us about your ..." rows="4"></textarea>
-                                </div>
-                                <!-- End Form -->
-
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary btn-lg">Send inquiry</button>
-                                </div>
-
-                                <div class="text-center">
-                                    <p class="form-text">We'll get back to you in 1-2 business days.</p>
-                                </div>
-                            </form>
-                            <!-- End Form -->
-                        </div>
-                    </div>
-                    <!-- End Card -->
-                </div>
-            </div>
-            <!-- End Col -->
+          
         </div>
-        <!-- End Row -->
+      </div>
+      <!-- End Leaflet -->
+
     </div>
-    <!-- End Contact Form -->
+    <!-- End Col -->
+
+    <div class="col-lg-9">
+      <div class="ps-lg-5">
+        <!-- Card -->
+
+        <div class="text-center">
+          <ul class="nav nav-segment nav-pills mb-7" role="tablist">
+
+            {% for region in regions %}
+            <li class="nav-item">
+              <a class="nav-link navvs" id="{{region.region_slug}}1" href="#{{region.region_slug}}"
+                data-bs-toggle="pill" data-bs-target="#{{region.region_slug}}" role="tab" aria-controls="nav-one-eg1"
+                aria-selected="false">{{region.region_name}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <!-- End Nav -->
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+          {% for region in regions %}
+          <div class="tab-pane fade" id="{{region.region_slug}}" role="tabpanel">
+            <p>
+              {% for punkt in region.punkt_set.all %}
+              <!-- Card -->
+              <div class="container">
+                <div class="w-lg-100 mx-lg-auto">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row col-md-divider align-items-md-center">
+                        <div class="col-md-9">
+                          <h3>{{ punkt.punkt_name}}</h3>
+                          <p>{{punkt.punkt_short_desc}}</p>
+
+                          <p>{{punkt.body_editorjs | editorjs}}</p>
+                          <div>
+                            <script type="text/javascript" charset="utf-8" async
+                              src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor{{ punkt.punkt_map_key }}&amp;width=100%25&amp;height=300&amp;lang=ru_RU&amp;scroll=true">
+                            </script>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6 mb-2 mb-sm-0">
+
+                            </div>
+                            <!-- End Col -->
+
+                            <div class="col-sm-6">
+
+                            </div>
+                            <!-- End Col -->
+                          </div>
+                          <!-- End Row -->
+                        </div>
+                        <!-- End Col -->
+
+                        <div class="col-md-3">
+                          <div>
+                            <h4>Проложить маршрут</h4>
+                            <a class="link" href="https://yandex.ru/maps/?rtext=~{{ punkt.punkt_geo }}">Яндекс Карты<i
+                                class="bi-chevron-right small ms-1"></i></a>
+                          </div>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <!-- End Card -->
+              {% endfor %}
+            </p>
+          </div>
+          {% endfor %}
+          <script>
+            document.getElementsByClassName("tab-pane")[0].classList.add('show');
+            document.getElementsByClassName("tab-pane")[0].classList.add('active');
+            document.getElementsByClassName("navvs")[0].classList.add('active');
+          </script>
+        </div>
+        <!-- End Tab Content -->
+
+      </div>
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+  
+
+
+
+  
+
+</div>
+<!-- End Contact Form -->
+
+
+<!-- Info -->
+<div class="container mb-5">
+  <div class="row justify-content-lg-between">
+    <div class="col-lg-2 mb-5 mb-lg-0">
+      <h2>Уважаемые коллеги, друзья!</h2>
+    </div>
+    <!-- End Col -->
+
+    <div class="col-lg-9">
+      <p>Мне не хочется начинать это обращение к Вам с фразы: «длительное время» или «динамично развивающаяся» или «вот уже 15 лет» эти штампы не для разговора старых и добрых друзей. Ведь с многими из Вас мы знакомы лично, где помимо строгих и деловых отношений присутствуют и неподдельный интерес о Ваших родных и близких, общих знакомых, желание поздравлять и получать поздравления на праздники. И мы очень ценим эти отношения и это общение. Не буду скрывать, мы всегда рады и новым знакомствам, и новым клиентам.</p>  <p>От команды, зависит все. Один в поле не воин. Идей может быть много, а вот воплотить их в реальность это задача задач, и Вы являетесь частью этого движения.</p>  <p>Мы рады поделиться своим опытом, своими знаниями и умениями. Для себя же главной целью работы ставлю создание команды единомышленников, комфортного делового климата. Треть жизни мы проводим во сне, а треть на работе. Как и в любом живом организме конечно и у нас есть недостатки, мы знаем о них и по силам исправляем. А если подскажете о них будем только рады.</p>  <p>Жизнь- штука непростая. Любит попробовать все на прочность. В терпении возникает надежда, а с надеждой и вера. Вера в то что мы занимаемся нужным и полезным делом, что частичка и нашего труда есть в выращенном зерне, в собранном тракторе, в построенном доме. Отрадно и ответственно! Очень надеемся на Вас дорогие наши коллеги и друзья, на совместный плодотворный труд, на долгосрочные отношения, на взаимопонимание и поддержку.</p>  <p><span style="color: #313131;"><b>Сергей Николаевич</b></span><br> <i>Руководитель компании</i></p>
+     </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+
+
+
+
+
+  <div class="row justify-content-lg-between align-items-lg-center">
+    <div class="col-lg-6 mb-9 mb-lg-0">
+      <!-- Video Block -->
+<div id="youTubeVideoPlayer" class="video-player video-player-inline-btn">
+  <img class="img-fluid video-player-preview" src="{% static "/video/working-in-office.jpg" %}" alt="Image">
+
+  <!-- Play Button -->
+  <a class="js-inline-video-player video-player-btn video-player-centered" href="javascript:;"
+     data-hs-video-player-options='{
+       "videoId": "jD9j4MxgZgE",
+       "parentSelector": "#youTubeVideoPlayer",
+       "targetSelector": "#youTubeVideoIframe",
+       "isAutoplay": true
+     }'>
+    <span class="video-player-icon shadow-sm">
+      <i class="bi-play-fill"></i>
+    </span>
+  </a>
+  <!-- End Play Button -->
+
+  <!-- Video Iframe -->
+  <div class="ratio ratio-16x9">
+    <div id="youTubeVideoIframe"></div>
+  </div>
+  <!-- End Video Iframe -->
+</div>
+<!-- End Video Block -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-lg-5">
+      <!-- Heading -->
+      <div class="mb-5">
+        <h2>Работа нашей команды</h2>
+      </div>
+      <!-- End Heading -->
+
+      <!-- Step -->
+      <ul class="step step-dashed mb-7">
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-xs step-icon-soft-primary">1</span>
+            <div class="step-content">
+              <h4 class="step-title">Мы созидательные</h4>
+              <p>Мы внимательно относимся к клиенту и осознаем важность нашей деятельности.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-xs step-icon-soft-primary">2</span>
+            <div class="step-content">
+              <h4 class="step-title">Мы ответственные</h4>
+              <p>Усердие, увлеченность и ответственность характеризуют нас. Мы ценим каждую деталь наших договоренностей</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item mb-0">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-xs step-icon-soft-primary">3</span>
+            <div class="step-content">
+              <h4 class="step-title">Мы любознательные</h4>
+              <p class="mb-0">Мы увлеченно работаем и постоянно развиваемся потому что только в постоянном развитии можно добиться прогресса.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- End Step -->
+
+      <a class="btn btn-primary btn-transition" href="#">Заказать звонок</a>
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Row -->
+
+</div>
+<!-- End Info -->
+
+
+
 
 {% endblock %}
