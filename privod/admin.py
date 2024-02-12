@@ -13,6 +13,7 @@ admin.site.register(Region, admin.ModelAdmin)
 admin.site.register(Punkt, admin.ModelAdmin)
 admin.site.register(Product, admin.ModelAdmin)
 admin.site.register(Manufacturer, admin.ModelAdmin)
+admin.site.register(Producttag, admin.ModelAdmin)
 
 
 

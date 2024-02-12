@@ -34,14 +34,18 @@
             </div>
 
             <div class="mb-7">
-              <h1 class="h4">Категория</h1>
-{% for cat in product.category.all%}
-              <a class="btn btn-soft-secondary btn-xs me-1 mb-2" href="../category/{{ product.category.cat_slug }}">{{ cat }}</a>
+              {% if product.product_tag.first %}
+              <h1 class="h4">Назначение</h1>
+              {% endif %}
+{% for cat in product.product_tag.all%}
+              <a class="btn btn-soft-secondary btn-xs me-1 mb-2" href="{{ cat.tag_name }}">{{ cat }}</a>
 {% endfor %}
             </div>
 
             <div class="d-none d-md-block mb-7">
+              {% if product.manufacturer.first %}
               <h4>Производитель</h4>
+              {% endif %}
               {% for manufact in product.manufacturer.all %}
 
               <a class="d-flex align-items-center" href="#">

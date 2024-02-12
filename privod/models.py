@@ -11,7 +11,7 @@ class Category(models.Model):
     cat_short_desc = models.TextField('Короткое описание', blank=True)
     pin_main_first = models.BooleanField('Закрепить на главной странице в первом блоке', default=False)
     pin_main_sec = models.BooleanField('Закрепить на главной странице во втором блоке', default=False)
-    cat_desc = models.TextField('Полное описание', blank=True)
+    cat_desccript = EditorJsJSONField(default=dict)
     cat_image = models.ImageField('Изображение категории', default='placeholder.jpg')
     preview_image = models.ImageField('Изображение категории', default='placeholder.jpg')
     pub_date = models.DateTimeField(default=datetime.datetime.now)
@@ -41,6 +41,16 @@ class Manufacturer(models.Model):
     def get_absolute_url(self):
         return reverse('manufacturer', args=[self.manufacturer_slug])
 
+class Producttag(models.Model):
+    tag_name = models.CharField('Название тега', max_length=200)
+    tag_title = models.CharField('Заголовок для Open Graph (og:title)', max_length=200)
+    tag_metadesc = models.CharField('Описание для Open Graph (og:description)', max_length=300)
+    tag_short_desc = models.TextField('Короткое описание', blank=True)
+    tag_slug = models.CharField('URL', max_length=200, default='tag' + str(datetime.datetime.now()))
+
+    def __str__(self):
+        return self.tag_name
+
 class Product(models.Model):
     product_name = models.CharField('Название продукта', max_length=200)
     product_title = models.CharField('Заголовок для Open Graph (og:title)', max_length=200)
@@ -51,6 +61,7 @@ class Product(models.Model):
     pin_main = models.BooleanField('Закрепить на главной странице', default=False)
     category = models.ManyToManyField(Category,blank=True)
     manufacturer = models.ManyToManyField(Manufacturer, blank=True)
+    product_tag = models.ManyToManyField(Producttag,blank=True)
     pub_date = models.DateTimeField(default=datetime.datetime.now)
     characteristics = EditorJsJSONField(default=dict)
     longdescription = EditorJsJSONField(default=dict)

@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load editorjs %}
 {% block content %}
     <div class="container content-space-t-4">
       <div class="w-lg-75">
         <h1 class="mb-5">
-          Категории продуктов, выберите свою
+          {{ category.cat_name }}
         </h1>
 
         <p class="lead">Доставка продукции со склада занимает 1-3 рабочих дней, для выполнения индивидуальных заказов обратитесь к нашим менеджерам</p>
@@ -70,8 +71,7 @@
 {% endfor %}
           </div>
           <!-- End Row -->
-
-          <!-- Pagination -->
+            {{category.cat_desccript | editorjs }}
           
         </div>
         <!-- End Col -->
