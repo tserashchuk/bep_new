@@ -31,6 +31,7 @@ class Manufacturer(models.Model):
     manufacturer_title = models.CharField('Заголовок для Open Graph (og:title)', max_length=200)
     manufacturer_metadesc = models.CharField('Описание для Open Graph (og:description)', max_length=300)
     manufacturer_image = models.ImageField('Логотип производителя', default='placeholder.jpg')
+    manufacturer_big_image = models.ImageField('Фон производителя', default='placeholder.jpg')
     manufacturer_desc = models.TextField('Описание производителя', blank=True)
     body_editorjs = EditorJsJSONField()
     manufacturer_slug = models.CharField('URL', max_length=200, default='manufacturer' + str(datetime.datetime.now()))
