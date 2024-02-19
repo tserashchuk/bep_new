@@ -29,5 +29,13 @@ class SingleProduct(View):
 class Contacts(View):
     def get(self, request):
         regions = Region.objects.all()
-        print(regions)
         return render(request, 'contact.html', {'regions':regions})
+    
+class Manufacturers(View):
+    def get(self, request, manufacturer_slug):
+        manufacturer = Manufacturer.objects.get(manufacturer_slug=manufacturer_slug)
+        products_sliced = Product.objects.filter(manufacturer=manufacturer)[:6]
+        
+        classes = ['d-sm-inline-block mt-n10','col-3 d-sm-inline-block  mt-lg-n8', 'd-lg-inline-block mt-n4','d-sm-inline-block  mt-n7', 'col-3 d-sm-inline-block  mt-lg-n10',' d-lg-inline-block']
+        datas = zip(classes, products_sliced)
+        return render(request, 'manufacturer.html', {'datas':datas,'manufacturer':manufacturer})

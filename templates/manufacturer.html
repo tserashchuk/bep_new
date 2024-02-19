@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% load editorjs %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="position-relative bg-img-start" style="background-image: url({{ manufacturer.manufacturer_image.url }})">
+    <div class="container content-space-t-2 content-space-t-md-3 content-space-3 content-space-b-lg-5">
+      <div class="w-lg-50">
+        <h1>{{ manufacturer.manufacturer_name }}</h1>
+        <h2 class="h1 text-primary">{{ manufacturer.manufacturer_desc }}</h2>
+      </div>
+    </div>
+  
+    <!-- Shape -->
+    <div class="shape shape-bottom zi-1" style="margin-bottom: -.125rem">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
+        <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+      </svg>
+    </div>
+    <!-- End Shape -->
+  </div>
+  <!-- End Hero -->
+  
+  <!-- Clients -->
+  <div class="container position-relative zi-2">
+    <div class="row justify-content-center mt-n5">
+
+    {% for class,item in datas%}
+    
+      <div class="col-lg-2 d-none {{class}}">
+        <!-- Logo -->
+        <div class="avatar avatar-xl {% if forloop.counter == 2 or forloop.counter == 5%} avatar-xxl{% endif %} avatar-circle shadow-sm p-4 mx-auto">
+          <img class="avatar-img" src="{{ item.product_image.url }}" alt="Image Description">
+        </div>
+        <!-- End Logo -->
+      </div>
+      
+  {% endfor %}
+      
+    </div>
+  </div>
+  <!-- End Clients -->
+
+
+
+
+
+
+
+
+
+
+  <!-- Article Description -->
+<div class="container content-space-2 content-space-lg-3">
+    <div class="w-lg-65 mx-lg-auto">
+      <div class="mb-4">
+        <h2 class="h2">Подробнее о производителе</h2>
+      </div>
+  
+      <div class="row align-items-sm-center mb-5">
+
+  
+    
+  
+      <p>At Front, our mission has always been focused on bringing openness and transparency to the design process. We've always believed that by providing a space where designers can share ongoing work not only empowers them to make better products, it also helps them grow. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision.</p>
+    </div>
+      
+    </div>
+  </div>
+  <!-- End Article Description -->
+
+
+
+  {% endblock %}
