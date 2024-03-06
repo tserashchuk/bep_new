@@ -35,7 +35,7 @@ class Manufacturers(View):
     def get(self, request, manufacturer_slug):
         manufacturer = Manufacturer.objects.get(manufacturer_slug=manufacturer_slug)
         products_sliced = Product.objects.filter(manufacturer=manufacturer)[:6]
-        
+        products_man = Product.objects.filter(manufacturer=manufacturer)
         classes = ['d-sm-inline-block mt-n10','col-3 d-sm-inline-block  mt-lg-n8', 'd-lg-inline-block mt-n4','d-sm-inline-block  mt-n7', 'col-3 d-sm-inline-block  mt-lg-n10',' d-lg-inline-block']
         datas = zip(classes, products_sliced)
-        return render(request, 'manufacturer.html', {'datas':datas,'manufacturer':manufacturer})
+        return render(request, 'manufacturer.html', {'datas':datas,'manufacturer':manufacturer,'products_man':products_man})
