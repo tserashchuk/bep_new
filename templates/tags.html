@@ -5,10 +5,10 @@
 <div class="container content-space-t-4">
   <div class="w-lg-75">
     <h1 class="mb-5">
-      {{ category.cat_name }}
+      {{ producttags.tag_name }}
     </h1>
 
-    <p class="lead">{{ category.cat_short_desc }}</p>
+    <p class="lead"> {{ producttags.tag_short_desc }}</p>
   </div>
 </div>
 <!-- End Hero -->
@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="row row-cols-sm-2 row-cols-md-4 mb-10">
-        {% for product in category.product_set.all %}
+        {% for product in producttags.product_set.all %}
         <div class="col-sm-6 col-lg-3 my-5 mb-lg-0">
           <!-- Card -->
           <div class="card card-sm shadow-sm mb-4" style="height: 100%">

@@ -18074,6 +18074,14 @@ input[type=number] {
     border-radius: .5rem
 }
 
+.avatar-menu {
+    position: relative;
+    display: inline-block;
+    width: 5.125rem;
+    height: auto;
+    border-radius: .5rem
+}
+
 .avatar:not(img) {
     background-color: #fff
 }

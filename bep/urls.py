@@ -26,10 +26,12 @@ urlpatterns = [
                   path('category/', views.Categorys.as_view(), name='categorys'),
                   path('category/<str:cat_slug>', views.Products.as_view(), name='products'),
                   path('product/<str:product_slug>', views.SingleProduct.as_view(), name='product'),
+                  path('product-tag/<str:tag_slug>', views.ProductTags.as_view(), name='producttag'),
                   path('manufacturer/<str:manufacturer_slug>', views.Manufacturers.as_view(), name='manufacturer'),
                   path('contact/', views.Contacts.as_view(), name='contact'),
                   path('admin/', admin.site.urls),
                   path('editorjs/', include('django_editorjs_fields.urls')),
+                  path('search', views.Search.as_view(), name='search'),
                   
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

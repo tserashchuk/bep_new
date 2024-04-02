@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views import View
 from privod.models import *
 from django.db.models.functions import Length
-
+import json
+from django.http import HttpResponse
 class Home(View):
     def get(self, request):
         products = Product.objects.filter(pin_main=True)
@@ -20,6 +21,12 @@ class Products(View):
         category = Category.objects.get(cat_slug=cat_slug)
         manufacturers = Manufacturer.objects.all()
         return render(request, 'products.html', {'category': category, 'manufacturers':manufacturers})
+    
+class ProductTags(View):
+    def get(self, request, tag_slug):
+        producttags = Producttag.objects.get(tag_slug=tag_slug)
+        manufacturers = Manufacturer.objects.all()
+        return render(request, 'tags.html', {'producttags': producttags, 'manufacturers':manufacturers})
 
 class SingleProduct(View):
     def get(self, request, product_slug):
@@ -39,3 +46,17 @@ class Manufacturers(View):
         classes = ['d-sm-inline-block mt-n10','col-3 d-sm-inline-block  mt-lg-n8', 'd-lg-inline-block mt-n4','d-sm-inline-block  mt-n7', 'col-3 d-sm-inline-block  mt-lg-n10',' d-lg-inline-block']
         datas = zip(classes, products_sliced)
         return render(request, 'manufacturer.html', {'datas':datas,'manufacturer':manufacturer,'products_man':products_man})
+    
+class Search(View):
+
+    def post(self, request):
+        senddata = []
+      
+        data = json.loads(request.body)
+        products = Product.objects.all()
+        
+        for product in products:
+            if product.product_name.lower().find(str(data['searchquery']).lower()) != -1:
+                senddata.append([product.id, product.product_name,
+                                       product.product_desc, product.product_slug])
+        return HttpResponse(json.dumps(senddata), content_type="application/json")
