@@ -54,9 +54,8 @@ class Search(View):
       
         data = json.loads(request.body)
         products = Product.objects.all()
-        
+    
         for product in products:
             if product.product_name.lower().find(str(data['searchquery']).lower()) != -1:
-                senddata.append([product.id, product.product_name,
-                                       product.product_desc, product.product_slug])
+                senddata.append([product.product_name, product.product_slug])
         return HttpResponse(json.dumps(senddata), content_type="application/json")

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title> БелЕвропривод</title>
+  <title> БелЕвропривод - оборудование для производств</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="../favicon.ico">
@@ -589,7 +589,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title h4" id="myExtraLargeModalLabel">Extra large modal</h5>
+          {% comment %} <h5 class="modal-title h4" id="myExtraLargeModalLabel">Extra large modal</h5> {% endcomment %}
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -615,9 +615,10 @@
               <li class="nav-item">
                 <a class="nav-link ft" id="nav-four-eg1-tab" href="#nav-four-eg1" data-bs-toggle="pill"
                   data-bs-target="#nav-four-eg1" role="tab" aria-controls="nav-four-eg1" aria-selected="false">Поиск по
-                  продуктам</a>
-              </li>
-            </ul>
+                  названию</a>
+              </li> 
+            </ul><span class="text-primary text-highlight-warning m-3"><a href="tel:+375173383033"
+              target="_blank">+375 (17) 338-30-33</a></span>
           </div>
           <!-- End Nav -->
 
@@ -650,6 +651,33 @@
                 <!-- End Col -->
                 {% endfor %}
 
+
+
+
+                <div class="col-sm-6 col-md-4 mb-3">
+                  <!-- Card -->
+                  <a class="card card-transition bg-light h-100 shadow-none overflow-hidden" href="#">
+                    <div class="row align-items-center">
+                      <div class="col-8 col-md-8">
+                        <div class="card-body">
+                          <h4 class="card-title">Не нашли продукт?</h4>
+                          <span class="card-link">Закажите звонок <i class="bi-chevron-right small"></i></span>
+                        </div>
+                      </div>
+                      <!-- End Col -->
+
+                      
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </a>
+                  <!-- End Card -->
+                </div>
+
+
+
+
+
               </div>
             </div>
 
@@ -680,6 +708,31 @@
                 </div>
                 <!-- End Col -->
                 {% endfor %}
+
+
+
+                <div class="col-sm-6 col-md-4 mb-3">
+                  <!-- Card -->
+                  <a class="card card-transition bg-light h-100 shadow-none overflow-hidden" href="#">
+                    <div class="row align-items-center">
+                      <div class="col-8 col-md-8">
+                        <div class="card-body">
+                          <h4 class="card-title">Не нашли производителя?</h4>
+                          <span class="card-link">Закажите звонок <i class="bi-chevron-right small"></i></span>
+                        </div>
+                      </div>
+                      <!-- End Col -->
+
+                      
+                      <!-- End Col -->
+                    </div>
+                    <!-- End Row -->
+                  </a>
+                  <!-- End Card -->
+                </div>
+
+
+
               </div>
             </div>
 
@@ -694,10 +747,10 @@
               <!-- Search -->
               <div class="mb-4">
                 <div class="mb-3">
-                  <h4>24 Results <span class="text-body small">for "Developer tools"</span></h4>
+                  <h4><span id="pcount">Всего в базе 145</span> <span class="text-body small">продуктов</span></h4>
                 </div>
 
-                <form>
+               
                   <!-- Input Card -->
                   <div class="input-card border">
                     <div class="input-card-form">
@@ -715,10 +768,10 @@
                     </button>
                   </div>
                   <!-- End Input Card -->
-                </form>
+                
               </div>
               <!-- End Search -->
-              <div id="wr"></div>
+              <table><tbody id="wr"></tbody></table>
               <script>
                 function getCookie(name) {
                   let cookieValue = null;
@@ -737,7 +790,7 @@
                 }
                 const csrftoken = getCookie('csrftoken');
                 const getSearch = async (searchquery) => {
-                  console.log('dsf')
+                  
                   let response = await fetch(`/search`, {
                     method: 'POST',
                     headers: {
@@ -753,23 +806,19 @@
                 const bclick = async () => {
                   let wr = document.getElementById('wr')
                   let searchfield = document.getElementById('searchAppsForm')
-                  wr.innerHTML = '<img src="https://icons8.com/preloaders/preloaders/1477/Plant.gif"/>'
+                  let pc = document.getElementById('pcount')
                   let a = await getSearch(searchfield.value)
                   wr.innerHTML = ''
+                  pc.innerHTML = 'Найдено '+ a.length
+                  console.log(a)
                   for (const [key, value] of Object.entries(a)) {
                     wr.innerHTML +=
-                      `<tr><td>${value[3]}</td> <td><a href="/product/${value[4]}">${value[0]}</a></td><td>${value[1]} BYN за ${value[2]}</td></tr>`
-                    if (key == 10) {
+                      `<tr><td><a href="/product/${value[1]}">${value[0]}</a></td></tr>`
+                    if (key == 30) {
                       break
                     }
                   }
-                  for (const [key, value] of Object.entries(a[0])) {
-                    wr.innerHTML +=
-                      `<tr><td>${value[3]}</td> <td><a href="/product/${value[4]}">${value[0]}</a></td><td>${value[1]} BYN за ${value[2]}</td></tr>`
-                    if (key == 10) {
-                      break
-                    }
-                  }
+              
                 }
                 document.addEventListener('keydown', (event) => {
                   if (event.keyCode == 13) {
