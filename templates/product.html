@@ -38,7 +38,7 @@
               <h1 class="h4">Назначение</h1>
               {% endif %}
 {% for cat in product.product_tag.all%}
-              <a class="btn btn-soft-secondary btn-xs me-1 mb-2" href="{{ cat.tag_name }}">{{ cat }}</a>
+              <a class="btn btn-soft-secondary btn-xs me-1 mb-2" href="{% url 'producttag' cat.tag_slug%}">{{ cat }}</a>
 {% endfor %}
             </div>
 
@@ -48,7 +48,7 @@
               {% endif %}
               {% for manufact in product.manufacturer.all %}
 
-              <a class="d-flex align-items-center" href="#">
+              <a class="d-flex align-items-center" href="{% url 'manufacturer' manufact.manufacturer_slug%}">
                 <div class="flex-shrink-0">
                   <img class="avatar avatar-xs" src="{{ manufact.manufacturer_image.url}}" alt="Logo">
                 </div>
@@ -147,7 +147,7 @@
         <div class="col-sm-6 col-md-4 mb-3">
           <!-- Card -->
           <div class="card card-bordered card-transition shadow-none h-100">
-            <a class="card-body" href="../demo-app-marketplace/app-overview.html">
+            <a class="card-body" href="{% url 'product' reccomend.product_slug %}">
               <div class="d-flex">
                 <div class="flex-shrink-0">
                   <img class="avatar" style="height:auto;" src="{{ reccomend.product_image.url }}" alt="Logo">

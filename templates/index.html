@@ -32,7 +32,7 @@
                     <p class="card-text">
                       {{ item.cat_short_desc |truncatechars:40 }}
                     </p>
-                    <a class="card-link" href="#">Посмотреть {{ item.product_set.all | length }} моделей<i
+                    <a class="card-link" href="{% url 'products' item.cat_slug%}">Посмотреть {{ item.product_set.all | length }} моделей<i
                         class="bi-chevron-right small ms-1"></i></a>
                   </div>
                 </div>
@@ -46,7 +46,7 @@
             <!-- End Card -->
           </div>
           <!-- End Col -->
-          {%endfor%}
+          {% endfor %}
         </div>
         <!-- End Row -->
       </div>
@@ -88,7 +88,7 @@
       <div class="col-sm-6 col-md-4 mb-3">
         <!-- Card -->
         <div class="card card-bordered card-transition shadow-none h-100">
-          <a class="card-body" href="../demo-app-marketplace/app-overview.html">
+          <a class="card-body" href="{% url 'products' item.cat_slug%}">
             <div class="d-flex">
               <div class="flex-shrink-0">
                 <img class="avatar avatar-xs" src="{{item.cat_image.url}}" alt="Logo"
@@ -113,67 +113,6 @@
     </div>
     <!-- Title -->
 
-    {% comment %}
-    <div class="w-md-75 w-lg-100 mx-md-auto mb-5 mb-md-9">
-      <div class="row">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <!-- Card -->
-          <a class="card card-transition align-items-end flex-wrap flex-row bg-img-start h-100" href="#" style="
-              background-image: url('{% static '/svg/components/card-4.svg' %}');
-              min-height: 25rem;
-            ">
-            <div class="card-body">
-              <h2 class="card-title text-white">
-                Revolutionizing the way start-ups win new customers
-              </h2>
-              <p class="card-text text-white">
-                Automate best strategies and focus more on generating hq
-                creatives.
-              </p>
-              <span class="card-link link-light">Learn more <i class="bi-chevron-right small ms-1"></i></span>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm-6 col-lg-3 mb-4 mb-sm-0">
-          <!-- Card -->
-          <a class="card card-transition align-items-end flex-wrap flex-row bg-img-start h-100" href="#" style="
-              background-image: url('{% static '/svg/components/card-5.svg' %}');
-              min-height: 25rem;
-            ">
-            <div class="card-body">
-              <h3 class="card-title text-white">
-                How we helped building the industry of the future
-              </h3>
-              <span class="card-link link-light">Learn more <i class="bi-chevron-right small ms-1"></i></span>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm-6 col-lg-3">
-          <!-- Card -->
-          <a class="card card-transition align-items-end flex-wrap flex-row bg-img-start h-100" href="#" style="
-              background-image: url('{% static '/svg/components/card-6.svg' %}');
-              min-height: 25rem;
-            ">
-            <div class="card-body">
-              <h3 class="card-title text-white">
-                How to save hundreds of thousands
-              </h3>
-              <span class="card-link link-light">Learn more <i class="bi-chevron-right small ms-1"></i></span>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-    </div>
-    {% endcomment %}
 
     <div class="w-md-75 w-lg-100 mx-md-auto mb-5 mb-md-9">
       <div class="row row-cols-2 row row-cols-1">
@@ -248,9 +187,9 @@
                 {% endif %}
               </div>
               <div>
-                <button type="button" class="btn btn-outline-secondary">
+                <a class="btn btn-outline-secondary" href="{% url 'product' product.product_slug%}">
                   Подробнее
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -259,34 +198,9 @@
       </div>
       <!-- End Col -->
 
-      {% comment %}
-      <div class="col mb-4">
-        <!-- Card -->
-        <div class="card card-bordered shadow-none text-center h-100">
-          <div class="card-pinned h-50">
-            <img class="card-img-top" src="{{ product.product_image.url }}" alt="Image Description" />
-
-            <div class="card-pinned-top-end"></div>
-          </div>
-
-          <div class="card-body">
-            <div class="mb-1">
-              <a class="link-sm link-secondary" href="#">{{product.category.all.0}}</a>
-            </div>
-            <a class="text-body" href="../demo-shop/product-overview.html">{{ product.product_name }}</a>
-          </div>
-
-          <div class="card-footer pt-0"></div>
-        </div>
-        <!-- End Card -->
-      </div>
-      {% endcomment %} {% endfor %}
+       {% endfor %}
     </div>
     <!-- End Row -->
-
-    <div class="text-center">
-      <a class="btn btn-outline-primary btn-transition rounded-pill" href="#">View all products</a>
-    </div>
   </div>
 
   <div class="position-relative overflow-hidden content-space-2">
