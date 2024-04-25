@@ -288,7 +288,7 @@
                             <h5 class="card-title mb-0">{{ category_base.cat_name }}</h5>
 
                           </div>
-                          <p class="card-text text-body small">Price comparison</p>
+                          <p class="card-text text-body small"> Выберите из {{ category_base.product_set.all | length }} основных продуктов</p>
                         </div>
                       </div>
                     </a>
@@ -346,7 +346,7 @@
                             <h5 class="card-title mb-0">{{ manufacturer_base.manufacturer_name }}</h5>
 
                           </div>
-                          <p class="card-text text-body small">Price comparison</p>
+                          <p class="card-text text-body small">Выберите из {{ manufacturer_base.product_set.all | length }} основных продуктов</p>
                         </div>
                       </div>
                     </a>
