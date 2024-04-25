@@ -5,18 +5,26 @@
 <main id="content" role="main">
   <!-- Hero -->
   <div class="gradient-y-sm-primary position-relative zi-2 overflow-hidden">
+   <div id="mydivVideo">
+    <video autoplay muted loop id="myVideo">
+      <source src="{% static "/video/videotest2.mp4" %}" type="video/mp4">
+    </video></div>
     <div class="container position-relative content-space-t-3 content-space-t-lg-4 content-space-b-2">
       <!-- Heading -->
-      <div class="w-md-80 w-lg-70 mx-md-auto mb-5 mb-md-9">
-        <h1 class="display-4 mb-3">
-          БелЕвропривод - редукторы и машиностроительное оборудование
-        </h1>
-        <p class="lead">
-          Мы поставляем машиностроительное оборудование по всей Беларуси и
-          России
-        </p>
+      <div class="w-lg-65 text-center mb-7 mx-lg-auto">
+        <!-- Heading -->
+        <div class="mb-5">
+          <h1 class="display-4 mb-3">БелЕвропривод - машиностроительное оборудование</h1>
+          <p class="lead">Все необходимы комплектующие для вашего производства</p>
+        </div>
+        <!-- End Heading -->
+
+        <div class="d-grid d-sm-flex justify-content-sm-center align-items-sm-center gap-3">
+          <a class="btn btn-primary btn-transition" href="#">Заказать звонок</a>
+          <small>или</small>
+          <a class="btn btn-soft-dark btn-transition" href="#">Все продукты <i class="bi-chevron-right small ms-1"></i></a>
+        </div>
       </div>
-      <!-- End Title & Description -->
 
       <!-- Card Grid -->
       <div class="container">
