@@ -385,8 +385,9 @@
 
             <div class="tab-pane fade ft" id="nav-three-eg1" role="tabpanel" aria-labelledby="nav-three-eg1-tab">
               {% for producttag_base in producttags_base%}
-              <span class="badge bg-soft-secondary text-secondary m-1"><a
-                  href="{% url 'producttag' producttag_base.tag_slug %}">{{producttag_base.tag_name}}</a></span>
+              <div class="badge custom-badges bg-soft-secondary text-secondary m-1"><a
+                  href="{% url 'producttag' producttag_base.tag_slug %}">{{producttag_base.tag_name}}</a> 
+                </div>
               {% endfor %}
             </div>
 

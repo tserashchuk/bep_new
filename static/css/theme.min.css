@@ -598,25 +598,25 @@ progress {
 
 @media (min-width: 576px) {
     .container, .container-sm {
-        max-width: 540px
+        max-width: 576px
     }
 }
 
 @media (min-width: 768px) {
     .container, .container-md, .container-sm {
-        max-width: 720px
+        max-width: 768px
     }
 }
 
 @media (min-width: 992px) {
     .container, .container-lg, .container-md, .container-sm {
-        max-width: 960px
+        max-width: 992px
     }
 }
 
 @media (min-width: 1200px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1140px
+        max-width: 1200px
     }
 }
 
@@ -29251,3 +29251,11 @@ a:hover .text-inherit {
 }
 .container{ z-index: 9999;}
 
+.h-30 {height:30px}
+.btn-sm-p1 {padding: 1rem 1rem;
+    font-size: 1rem;
+    border-radius: .3125rem;}
+
+.custom-badges {
+    font-size: 14px;
+}

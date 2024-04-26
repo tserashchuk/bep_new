@@ -23,15 +23,37 @@
     <!-- Content -->
     <div class="container content-space-t-2 content-space-b-lg-2">
       <div class="row">
-        <div class="col-md-4 col-lg-3 mb-9 mb-md-0">
+        <div class="col-md-4 col-lg-4 mb-9 mb-md-0">
           <div class="pe-lg-2">
             <div class="text-center mb-4">
               <img class="product-image " src="{{ product.product_image.url }}" alt="Logo">
             </div>
 
-            <div class="d-grid mb-7">
-              <a class="btn btn-sm btn-block btn-primary transition-3d-hover" href="#">Заказать звонок</a>
+            <div class="d-grid mb-5">
+              <a class="btn btn-sm-p1  btn-block btn-success transition-3d-hover" href="#">Заказать звонок</a>
+              
             </div>
+            <div class="mb-5 d-flex justify-content-between">
+              <div>
+                <img class="h-30" src="{% static '/vendor/duotone-icons/com/com014.svg' %}" /><span class="text-dark h5">1 год гарантии</span>
+              </div>
+              <div>
+              <img class="h-30" src="{% static '/vendor/duotone-icons/com/com007.svg' %}" /><span class="text-dark h5">Проведем рассчеты</span>
+            </div>
+            </div>
+
+<!-- Banner -->
+<div class="pb-5">
+  <div class="bg-light rounded-2" style="background: url({% static '/svg/components/shape-6.svg' %}) right bottom no-repeat;">
+    <div class="py-8 px-6">
+      <h5 class="">Сломался редуктор?</h5>
+      <p class="mb-0">Купите новый или <a class="link link-primary" href="#">закажите ремонт</a></p>
+    </div>
+  </div>
+</div>
+<!-- End Banner -->
+
+
 
             <div class="mb-7">
               {% if product.product_tag.first %}
@@ -66,7 +88,7 @@
         </div>
         <!-- End Col -->
 
-        <div class="col-md-8 col-lg-9 column-divider-md">
+        <div class="col-md-8 col-lg-8 column-divider-md">
           <div class="ps-lg-2">
             <div class="mb-5">
               <h2>{{ product.product_name }}</h2>
