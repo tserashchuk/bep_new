@@ -29259,3 +29259,5 @@ a:hover .text-inherit {
 .custom-badges {
     font-size: 14px;
 }
+
+.fff{filter: blur(10px);}
