@@ -29261,3 +29261,11 @@ a:hover .text-inherit {
 }
 
 .fff{filter: blur(10px);}
+
+
+.mask1 {
+  -webkit-mask-image: url('../logovector.png');
+  mask-image: url('../logovector.png');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
